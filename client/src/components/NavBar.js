@@ -4,6 +4,7 @@ import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { handleLogout } from '../actions/auth';
 import logo from './Logo.png';
+import './App.css'
 class NavBar extends Component {
   rightNavs = () => {
     const { user, dispatch, history } = this.props;
@@ -32,7 +33,7 @@ class NavBar extends Component {
 
   render() {
     return (
-      <div>
+      <div className="navs">
         <Menu pointing secondary>
           <Link to='/'>
             <Image src={logo} width="150px"/>

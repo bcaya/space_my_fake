@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import { getPosts } from '../actions/posts';
 import { Container, Grid, Header, Image } from 'semantic-ui-react';
 import { Button, Comment, Form } from 'semantic-ui-react'
@@ -34,7 +34,7 @@ class Posts extends React.Component {
         <Grid>
           <Grid.Row>
            <Grid.Column floated='right' width={7}>
-        <Header as="h3" textAlign="right">Posts</Header>
+        <Header as="h3" textAlign="right">Comments</Header>
           <Comment.Group>
            { this.posts() }
             <Form reply>

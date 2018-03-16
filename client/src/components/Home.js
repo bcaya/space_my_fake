@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Header } from 'semantic-ui-react';
 import { Link } from 'react-router-dom'; 
+import './App.css'
 import axios from 'axios';
 
 
@@ -12,8 +13,9 @@ class Home extends Component {
     }
   render() {
     return (
-      <Header as='h1' textAlign='left'>SpaceMy<Link to="/posts"> The *cosmic* </Link> place for friends</Header>
-      
+      <div className="bods">
+      <Header as='h1' textAlign='left'>SpaceMy <Link to="/posts"> The *cosmic* </Link> place for friends</Header>
+      </div>
     );
   }
 }
