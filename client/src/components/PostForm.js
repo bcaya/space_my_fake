@@ -4,19 +4,15 @@ import { updatePost, addPost } from '../actions/posts'
 import { Form } from 'semantic-ui-react';
 
 class PostForm extends React.Component {
-  initialState = { 
-    content: '', 
-    author: '',
-    title:'',
-  }
-
-  state = {...this.initialState}
+defaultValues = { content:'', author:'', avatar:'', title:''}
+state = { ...this.defaultValues };
+  
 
   componentWillMount() {
     if (this.props.id) 
       this.setState({ ...this.props })
   }
-
+ 
   handleChange = (e) => {
     const { name, value } = e.target
     this.setState({ [name]: value })
@@ -32,26 +28,22 @@ class PostForm extends React.Component {
   }
 
   render() {
-    const { title, content, author } = this.props
+    const { content, author, title, avatar } = this.props
     return (
       <Form onSubmit={this.handleSubmit}>
-        <Form.Input
-          name="title"
-          defaultValue={title}
-          onChange={this.handleChange}
-          label="Title"
-        />
         <Form.Input
           name="content"
           defaultValue={content}
           onChange={this.handleChange}
-          label="Content"
+          label="Content:"
+          required
         />
         <Form.Input
           name="author"
           defaultValue={author}
           onChange={this.handleChange}
-          label="Author"
+          label="Author:"
+          required 
         />
         <Form.Button>Save</Form.Button>
       </Form>

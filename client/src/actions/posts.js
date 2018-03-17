@@ -1,15 +1,17 @@
 import axios from 'axios';
-
 export const POSTS = 'POSTS';
 export const ADD_POST = "ADD_POST"
 export const UPDATE_POST = 'UPDATE_POST'
 export const DELETE_POST = "DELETE_POST"
 
-export const getPosts = () => {
+
+export const getPosts = callback => {
   return (dispatch) => {
     axios.get('/api/posts')
-      .then( res => dispatch({ type: POSTS, posts: res.data }) )
+      .then( res => dispatch({ type: POSTS, posts: res.data }))
+      .then(callback)
   }
+  
 }
 
 export const addPost = (post) => {
