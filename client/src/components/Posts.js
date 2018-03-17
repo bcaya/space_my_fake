@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link} from 'react-router-dom';
-import { getPosts, addPost } from '../actions/posts';
+import { getPosts, addPost, deletePost } from '../actions/posts';
 import { Container, Grid, Header, Image, Divider } from 'semantic-ui-react';
 import { Button, Comment, Form } from 'semantic-ui-react'
 import axios from 'axios'
@@ -29,7 +29,14 @@ class Posts extends React.Component {
         
           <Comment.Text>{post.content}</Comment.Text>  
           <Comment.Actions>
-        </Comment.Actions>
+            <Link to={`/posts/${post.id}`}> Edit Post </Link>
+            </Comment.Actions>
+            <Comment.Actions>
+            <Link to 
+            onClick={() => this.props.dispatch(deletePost(post.id))}>
+            Delete Post
+            </Link>
+          </Comment.Actions>
         <Comment.Metadata>
           <div>Posted....sometime</div>
         </Comment.Metadata>
@@ -43,12 +50,13 @@ class Posts extends React.Component {
     const { showForm } = this.state;
     return (
       <Container>
+        <Header as="h1" textAlign="center">
+                🚀 Far Out 👽
+          </Header>
         <Grid>
           <Grid.Row>
             <Grid.Column floated="right" width={7}>
-              <Header as="h1" textAlign="right">
-                🚀 👽
-              </Header>
+              
               <Button color='olive' compact onClick={this.toggleForm}>
                 {showForm ? 'Nevermind' : 'Add A Comment'}
               </Button>

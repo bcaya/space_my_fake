@@ -10,13 +10,11 @@ import Home from './Home';
 import ProtectedRoute from './ProtectedRoute';
 import AuthRoute from './AuthRoute';
 import FetchUser from './FetchUser';
+import FetchPosts from './FetchPosts'; 
 import { Switch, Route } from 'react-router-dom';
 
 
 class App extends Component {
-
-
-
 
   render() {
     return (
@@ -26,8 +24,7 @@ class App extends Component {
         <FetchUser>
           <Switch>
             <ProtectedRoute exact path='/' component={Home} />
-            <Route exact path="/posts" component={Posts} />
-            <Route exact path="/posts/:id" component={PostView} />
+            <Route path="/posts" component={FetchPosts} />
             <AuthRoute exact path='/login' component={Login} />
             <AuthRoute exact path='/register' component={Register} />
             <Route component={NoMatch} />

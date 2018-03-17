@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux'
 import { updatePost, addPost } from '../actions/posts'
 import { Form } from 'semantic-ui-react';
-
+import bart from './bart.png';
 class PostForm extends React.Component {
 defaultValues = { content:'', author:'', avatar:'', title:''}
 state = { ...this.defaultValues };
